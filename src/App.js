@@ -1,23 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+
+function DecreaseButton({ Decrease }) {
+  return <button onClick={Decrease}>-</button>;
+}
+
+class IncreaseButton extends React.Component {
+  render() {
+    return <button onClick={this.props.Increase}>+</button>;
+  }
+}
 
 function App() {
+  const [number, setNumber] = useState(0);
+
+  const plus = () => setNumber(number => number + 1);
+  const minus = () => setNumber(number => number - 1);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <div>{number}</div>
+      <DecreaseButton Decrease={minus} />
+      <IncreaseButton Increase={plus} />
     </div>
   );
 }

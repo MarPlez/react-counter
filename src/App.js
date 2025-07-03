@@ -1,12 +1,15 @@
 import React, { useState } from 'react';
+import Container from './components/container';
+import Button from './components/button';
+import Counter from './components/counter';
 
 function DecreaseButton({ Decrease }) {
-  return <button onClick={Decrease}>-</button>;
+  return <Button onClick={Decrease}>-</Button>;
 }
 
 class IncreaseButton extends React.Component {
   render() {
-    return <button onClick={this.props.Increase}>+</button>;
+    return <Button onClick={this.props.Increase}>+</Button>;
   }
 }
 
@@ -17,11 +20,13 @@ function App() {
   const minus = () => setNumber(number => number - 1);
 
   return (
-    <div>
-      <div>{number}</div>
-      <DecreaseButton Decrease={minus} />
-      <IncreaseButton Increase={plus} />
-    </div>
+    <Container>
+      <div>
+        <Counter>{number}</Counter>
+        <DecreaseButton Decrease={minus} />
+        <IncreaseButton Increase={plus} />
+      </div>
+    </Container>
   );
 }
 

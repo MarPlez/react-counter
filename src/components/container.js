@@ -1,9 +1,10 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-    height: 20vh;
-    width: 30vw;
+    height: 40vh;
+    width: 20vw;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     text-align: center;

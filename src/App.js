@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Container from './components/container';
-import Button from './components/button';
+import { Button , ButtonZero } from './components/button';
 import Counter from './components/counter';
 
 function DecreaseButton({ Decrease }) {
@@ -13,11 +13,16 @@ class IncreaseButton extends React.Component {
   }
 }
 
+function ResetButton({ Reset }) {
+  return <ButtonZero onClick={Reset}>Zerowanie</ButtonZero>;
+}
+
 function App() {
   const [number, setNumber] = useState(0);
 
   const plus = () => setNumber(number => number + 1);
   const minus = () => setNumber(number => number - 1);
+  const zero = () => setNumber(0);
 
   return (
     <Container>
@@ -25,6 +30,9 @@ function App() {
         <Counter>{number}</Counter>
         <DecreaseButton Decrease={minus} />
         <IncreaseButton Increase={plus} />
+      </div>
+      <div>
+        <ResetButton Reset={zero} />
       </div>
     </Container>
   );
